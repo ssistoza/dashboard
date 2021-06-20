@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prisma": "prisma"
+    "prisma": "prisma",
+    "migrate": "prisma migrate dev"
   },
   "dependencies": {
     "@prisma/client": "^2.25.0",

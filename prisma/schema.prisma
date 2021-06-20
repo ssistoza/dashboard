@@ -11,3 +11,18 @@ model Playground {
   id   Int     @id @default(autoincrement())
   name String? @db.VarChar
 }
+
+model ElectricCompany {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(25)
+  bills ElectricBill[]
+}
+
+model ElectricBill {
+  id Int @id @default(autoincrement())
+  date DateTime
+  from ElectricCompany @relation(fields: [companyId], references: [id])
+  companyId Int
+  usage Int
+  cost Decimal @db.Money
+}
