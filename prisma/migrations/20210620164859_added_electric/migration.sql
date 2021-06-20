@@ -12,7 +12,7 @@ CREATE TABLE "ElectricBill" (
     "date" TIMESTAMP(3) NOT NULL,
     "companyId" INTEGER NOT NULL,
     "usage" INTEGER NOT NULL,
-    "cost" MONEY NOT NULL,
+    "cost" INTEGER NOT NULL,
 
     PRIMARY KEY ("id")
 );
