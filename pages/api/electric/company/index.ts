@@ -2,6 +2,7 @@ import { ElectricBill, ElectricCompany } from '@prisma/client';
 import HTTPMethod from 'http-method-enum';
 import { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '../../../../util/db';
+import { totalPages } from '../../../../util/page';
 
 const MAX_ITEMS_TO_LOAD = 10;
 
@@ -19,6 +20,7 @@ export default async function companiesApi(
         }
       }
 
+      const totalCompanies = await prisma.electricCompany.count();
       const companies = await prisma.electricCompany.findMany({
         orderBy: {
           name: 'asc',
@@ -27,7 +29,10 @@ export default async function companiesApi(
         skip,
       });
 
-      res.status(200).json(companies);
+      res.status(200).json({
+        payload: companies,
+        pages: totalPages(MAX_ITEMS_TO_LOAD, totalCompanies),
+      });
       break;
     case HTTPMethod.POST:
       const data = req.body as Partial<ElectricCompany>;
