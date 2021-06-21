@@ -30,7 +30,7 @@ export default async function companiesApi(
       res.status(200).json(companies);
       break;
     case HTTPMethod.POST:
-      const data = JSON.parse(req.body) as Partial<ElectricCompany>;
+      const data = req.body as Partial<ElectricCompany>;
       if (data.name) {
         const newBill = await prisma.electricCompany.create({
           data: {
@@ -38,7 +38,7 @@ export default async function companiesApi(
           },
         });
 
-        res.status(201).json(newBill);
+        res.status(201).json({ id: newBill.id, name: newBill.name });
       } else {
         res.status(400).send({
           message:

@@ -30,7 +30,7 @@ export default async function billsApi(
       res.status(200).json(bills);
       break;
     case HTTPMethod.POST:
-      const data = JSON.parse(req.body) as Partial<ElectricBill>;
+      const data = req.body as Partial<ElectricBill>;
       if (data.cost && data.date && data.usage && data.companyId) {
         const newBill = await prisma.electricBill.create({
           data: {
