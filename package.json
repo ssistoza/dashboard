@@ -3,19 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "vc env pull .env.local",
+    "env": "vc env pull",
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
     "prisma": "prisma",
-    "migrate": "prisma migrate dev"
+    "migrate": "prisma migrate dev",
+    "ts-node": "ts-node --compiler-options \"{\\\"module\\\":\\\"commonjs\\\"}\""
   },
   "dependencies": {
     "@prisma/client": "^2.25.0",
     "http-method-enum": "^1.0.0",
     "next": "latest",
+    "next-firebase-auth": "^0.13.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "recharts": "^2.0.9"
   },
   "devDependencies": {
     "@types/node": "^15.12.4",
@@ -24,6 +27,11 @@
     "postcss": "^8.3.5",
     "prisma": "^2.25.0",
     "tailwindcss": "^2.2.2",
+    "ts-node": "^10.0.0",
     "typescript": "^4.3.4"
+  },
+  "peerDependencies": {
+    "firebase": "^8.6.8",
+    "firebase-admin": "^9.9.0"
   }
 }

@@ -1,7 +1,7 @@
 import { ElectricBill } from '@prisma/client';
 import HTTPMethod from 'http-method-enum';
 import { NextApiRequest, NextApiResponse } from 'next';
-import prisma from '../../../util/db';
+import prisma from '../../../lib/db';
 
 export default async function billApi(
   req: NextApiRequest,

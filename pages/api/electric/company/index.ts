@@ -1,8 +1,8 @@
 import { ElectricBill, ElectricCompany } from '@prisma/client';
 import HTTPMethod from 'http-method-enum';
 import { NextApiRequest, NextApiResponse } from 'next';
-import prisma from '../../../../util/db';
-import { totalPages } from '../../../../util/page';
+import prisma from '../../../../lib/db';
+import { totalPages } from '../../../../lib/page';
 
 const MAX_ITEMS_TO_LOAD = 10;
 

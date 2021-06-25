@@ -1,7 +1,8 @@
 import { ElectricBill } from '@prisma/client';
 import HTTPMethod from 'http-method-enum';
 import { NextApiRequest, NextApiResponse } from 'next';
-import prisma from '../../../util/db';
+import prisma from '../../../lib/db';
+import { isAuthorizedByApi } from '../../../lib/isAuthorized';
 
 const MAX_ITEMS_TO_LOAD = 10;
 
@@ -9,6 +10,8 @@ export default async function billsApi(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  isAuthorizedByApi(req, res);
+
   switch (req.method) {
     case HTTPMethod.GET:
       let skip = 0;
