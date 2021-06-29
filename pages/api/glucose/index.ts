@@ -44,6 +44,7 @@ export default async function glucoseApi(
         const newBill = {
           date: data.date,
           level: data.level,
+          withDate: new Date(data.date),
         };
         console.log(newBill);
         res.status(201).json(newBill);
