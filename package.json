@@ -12,26 +12,28 @@
     "ts-node": "ts-node --compiler-options \"{\\\"module\\\":\\\"commonjs\\\"}\""
   },
   "dependencies": {
-    "@prisma/client": "^2.25.0",
+    "@prisma/client": "^2.26.0",
+    "firebase": "^8.6.8",
+    "firebase-admin": "^9.9.0",
     "http-method-enum": "^1.0.0",
     "next": "latest",
     "next-firebase-auth": "^0.13.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-firebaseui": "^5.0.2",
+    "react-transition-group": "^4.4.2",
     "recharts": "^2.0.9"
   },
   "devDependencies": {
     "@types/node": "^15.12.4",
     "@types/react": "^17.0.11",
+    "@types/tailwindcss": "^2.2.0",
     "autoprefixer": "^10.2.6",
+    "eslint-config-next": "^11.0.1",
     "postcss": "^8.3.5",
-    "prisma": "^2.25.0",
+    "prisma": "^2.26.0",
     "tailwindcss": "^2.2.2",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.4"
-  },
-  "peerDependencies": {
-    "firebase": "^8.6.8",
-    "firebase-admin": "^9.9.0"
   }
 }

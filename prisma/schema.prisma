@@ -26,3 +26,9 @@ model ElectricBill {
   usage Int
   cost Int
 }
+
+model Glucose {
+  id Int @id @default(autoincrement())
+  date DateTime
+  level Int
+}
