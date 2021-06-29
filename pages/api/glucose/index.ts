@@ -35,13 +35,17 @@ export default async function glucoseApi(
     case HTTPMethod.POST:
       const data = req.body as Partial<Glucose>;
       if (data.date && data.level) {
-        const newBill = await prisma.glucose.create({
-          data: {
-            date: data.date,
-            level: data.level,
-          },
-        });
-
+        // const newBill = await prisma.glucose.create({
+        //   data: {
+        //     date: data.date,
+        //     level: data.level,
+        //   },
+        // });
+        const newBill = {
+          date: data.date,
+          level: data.level,
+        };
+        console.log(newBill);
         res.status(201).json(newBill);
       } else {
         res.status(400).send({
